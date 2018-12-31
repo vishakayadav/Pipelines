@@ -6,5 +6,9 @@
          range: ^10.x.x
      - reachable:
          - deploy
-         - deploy/production.git
          - deploy/production-www
+         - deploy/production.git
+
+     - contains: 
+         string: GIT_WORK_TREE=deploy/production-www/ git checkout
+         file: deploy/production-git/hooks
