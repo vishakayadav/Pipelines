@@ -11,4 +11,4 @@
 
      - contains: 
          string: GIT_WORK_TREE=deploy/production-www/ git checkout
-         file: deploy/production-git/hooks
+         file: deploy/production.git/hooks
