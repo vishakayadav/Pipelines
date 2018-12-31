@@ -1,14 +1,33 @@
 - group:
-   description: "Essential development tools"
-   checks:
+    description: "Essential workshop tools"
+    checks:
      - version:
          cmd: node --version
          range: ^10.x.x
+     - version:
+         cmd: git --version
+         range: ^2.17.x
+     - version:
+         cmd: curl --version
+         range: ^7.54.x         
+
+- group:
+    description: "Deploy directory setup"
+    checks:
+
      - reachable:
          - deploy
          - deploy/production-www
          - deploy/production.git
 
+- group:
+    description: "Hooks setup"
+    checks:
+
      - contains: 
-         string: GIT_WORK_TREE=deploy/production-www/ git checkout
-         file: deploy/production.git/hooks
+         string: production-www/ git checkout -f
+         file: deploy/production.git/hooks/pre-receive
+
+     - reachable:
+         - deploy/production-www/main.js
+         - deploy/production.git
