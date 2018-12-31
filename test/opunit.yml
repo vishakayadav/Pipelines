@@ -1,0 +1,12 @@
+- group:
+   description: "Essential development tools"
+   checks:
+     - version:
+         cmd: node --version
+         range: ^10.x.x
+     - reachable:
+         - deploy
+         - deploy/blue.git
+         - deploy/blue-www
+         - deploy/green.git
+         - deploy/green-www
