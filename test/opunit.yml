@@ -11,6 +11,15 @@
          cmd: curl --version
          range: ^7.54.x         
 
+- group: 
+    description: "Demo hook"
+    checks:
+     - reachable:
+        - hook-demo/.git/hooks/post-commit
+     - contains: 
+         string: google.com
+         file: hook-demo/.git/hooks/post-commit
+
 - group:
     description: "Deploy directory setup"
     checks:
