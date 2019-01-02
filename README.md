@@ -2,7 +2,7 @@
 
 In this workshop, we'll cover the basics of setting up a simple pipeline, consisting of git hooks and shell commands.
 
-### Prereqs
+### Before you start
 
 * [Install opunit and node.js](https://github.com/CSC-DevOps/profile#opunit)
 * Clone this repo with: `git clone https://github.com/CSC-DevOps/Pipelines`
@@ -21,7 +21,7 @@ $ opunit verify local
 What, Why, How (events/triggers).
 
 
-While more complex pipelines can be created with tools such as, Spinnaker and Jenkins, using simple tools---such as git and shell commands---can get the job done.
+While more complex pipelines can be created with tools such as, Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
 
 ## Hooks
 
