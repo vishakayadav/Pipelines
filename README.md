@@ -15,14 +15,6 @@ To help you identify if issues exist with the current setup, you can run the fol
 $ cd Pipelines
 $ opunit verify local
 ```
-
-## Pipelines
-
-What, Why, How (events/triggers).
-
-
-While more complex pipelines can be created with tools such as, Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
-
 ## Hooks
 
 Hooks are.
@@ -49,6 +41,14 @@ open https://google.com/
 ```
 
 Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git add demo`; `git commit -m "init"`. You should see the webpage open.)
+
+## Pipelines
+
+What, Why, How (events/triggers).
+
+
+While more complex pipelines can be created with tools such as, Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
+
 
 ## A Simple Pipeline
 
