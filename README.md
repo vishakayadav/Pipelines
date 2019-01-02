@@ -4,6 +4,19 @@ In this workshop, we'll cover the basics of setting up a simple pipeline, consis
 
 While more complex pipelines can be created with tools such as, spinnaker and jenkins, this approach can get the job done.
 
+### Prereqs
+
+
+
+### Checking progress on workshop
+
+To help you identify if issues exist with the current setup, you can run the following command to check:
+
+```bash
+$ opunit verify local
+```
+
+
 ### Hooks
 
 order of hooks...
