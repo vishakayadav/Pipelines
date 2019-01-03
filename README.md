@@ -49,8 +49,6 @@ Some example events include:
 
 Inside a new directory (`mkdir hook-demo`), create a new git repository with `git init`. Create a post-commit file located in "hook-demo/.git/hooks/post-commit". Finally, you should ensure the post-commit script is exectuable, by running `chmod +x post-commit`.
 
-![hook demo](img/hook-demo.png)
-
 The script for post-commit might look something like this:
 
 ```sh
@@ -63,6 +61,8 @@ open https://google.com/
 # In Linux
 # xdg-open https://google.com/
 ```
+
+![hook demo](img/hook-demo.png)
 
 Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git add demo`; `git commit -m "init"`. You should see the webpage open.)
 
