@@ -41,7 +41,7 @@ To create a new git hook, one simply creates a new shell script inside the `.git
 
 Some example events include:
 
-* **pre-commit:** This hook will run when `git commit` is performed on a repo. The hook can inspect the commit and reject it.
+* **pre-commit:** This hook will run when `git commit` is performed on a repo. The hook can inspect the commit and reject it (by exiting with a non-zero exit code, e.g., `exit 1`).
 * **post-commit:** This hook will run after a commit is processed by the local repository.
 * **post-receive:** This hook will run on a remote repository after a push has successfully been received and processed. This hook can be used for notifications or trigger other processes, such as a build.
 
