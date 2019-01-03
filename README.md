@@ -1,11 +1,18 @@
 # Pipelines
 
-In this workshop, we'll cover the basics of setting up a simple pipeline, consisting of git hooks and shell commands.
+In this workshop, we'll cover the basics of setting up a simple delivery pipeline, consisting of git hooks and shell commands.
 
 ### Before you start
 
 * [Install opunit and node.js](https://github.com/CSC-DevOps/profile#opunit)
 * Clone this repo with: `git clone https://github.com/CSC-DevOps/Pipelines`
+
+
+### What and why pipelines?
+
+A *delivery pipeline* is a workflow system for building, validating, and deploying changes into a production environment. Pipelines are essential for supporting the paradigm of *continuous deployment*. A pipeline consists of stages, which typically represents a software engineering process, such as testing, static analysis, acceptance testing, or code review. When fully automated, pipelines allow commits to source code to be automatically tested and "seamlessly" deployed into production environments within minutes.
+
+While more complex pipelines can be created with tools like Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
 
 ### Checking progress on workshop
 
@@ -41,13 +48,6 @@ open https://google.com/
 ```
 
 Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git add demo`; `git commit -m "init"`. You should see the webpage open.)
-
-## Pipelines
-
-What, Why, How (events/triggers).
-
-
-While more complex pipelines can be created with tools such as, Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
 
 
 ## A Simple Pipeline
