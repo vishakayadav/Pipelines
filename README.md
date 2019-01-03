@@ -31,11 +31,15 @@ $ opunit verify local
 ```
 ## Hooks
 
-Hooks are.
+A hook is a mechanism for specifying an action that occurs in response to an event. The action can be used to trigger other events. Thus, hooks can be composed together in order to create a simple pipeline.
 
-Types of hooks.
+Git provides [a hook mechanism](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) that can be used to customize responses to events, such as commits or pushes. A hook is run as a shell script in response to certain events that occur when git processes changes to source code.
 
-order of hooks...
+Some example hook include:
+
+* **pre-commit:** This hook runs when `git commit` is performed on a repo. The hook can inspect the commit and reject it.
+* **post-commit:** This hook occurs after a commit is processed by the local repository.
+* **post-receive:** This hook occurs on the remote repository after a push has successfully been processed. This hook can be used for notifications or trigger other processes, such as a build.
 
 ### Practice
 
