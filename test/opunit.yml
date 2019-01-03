@@ -21,8 +21,13 @@
          file: hook-demo/.git/hooks/post-commit
 
 - group:
-    description: "Deploy directory setup"
+    description: "App and deploy directory setup"
     checks:
+
+     - contains: 
+         comment: If this fails, you may need to ensure you checked out submodule. `cd App` then run `git submodule update --init --recursive`.
+         string: express
+         file: App/main.js
 
      - reachable:
          - deploy
