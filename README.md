@@ -99,14 +99,15 @@ We will add a hook that will cancel a commit if `npm test` fails.
 ![pre-commit](img/pre-commit.png)
 
 ```sh
-#!/bin/sh
+#!/bin/bash
 
+npm install
 npm test
 # Get the exit code of tests.
-NPM_STATUS=$?
-if [$NPM_STATUS -ne 0]; then
-    echo "Failed npm tests. Canceling 🚫 commit!"
+if npm test; then
+  echo "Passed tests! Commit ✅ allowed!" 
 fi
+echo "Failed npm tests. Canceling 🚫 commit!"
 exit 1
 ```
 
