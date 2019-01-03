@@ -71,15 +71,51 @@ Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git a
 
 ## A Simple Pipeline
 
+We will create a simple pipeline that runs tests, installs, and "deploys" an application into production based on a commit.
+
+### Our target application
+
+Inside the `App/` directory, there is a simple node.js application. Go ahead and setup the app locally by running `npm install` inside the App/ directory.
+
+Run the command: `npm start`, you should see output that looks something like:
+
+```
+$ npm start
+
+> app@0.9.1 start .../App
+> node main.js start 5001
+
+Example app listening at http://:::5001
+```
+
+Visit http://localhost:5001 in your web browser. You should see the message, "Hi From &lt;random number&gt;"
+
+Terminate the application (Control-C). Verify you can run the test with `npm test` and see two tests passing.
+
+### Adding a test stage.
+
+We will add a hook that will cancel a commit if `npm test` fails.
+
+![pre-commit](img/pre-commit.png)
+
 ```sh
 #!/bin/sh
 
-GIT_WORK_TREE=../production-www/ git checkout -f
-SHA1=$(git rev-parse HEAD)
-MSG=$(git show -s --format=%B $SHA1)
-echo "Received push to production: $MSG"
+npm test
+# Get the exit code of tests.
+NPM_STATUS=$?
+if [$NPM_STATUS -ne 0]; then
+    echo "Failed npm tests. Canceling 🚫 commit!"
+fi
+exit 1
 ```
 
-### Something with curl...
+## Concept questions
 
-* Webhooks?
+* What are some issues that might occur if requiring to pass tests in a pre-commit hook?
+
+## Next steps.
+
+
+* Curl...
+* Webhooks...

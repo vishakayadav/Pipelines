@@ -30,6 +30,11 @@
          file: App/main.js
 
      - reachable:
+         - App/
+         - App/node_modules
+
+
+     - reachable:
          - deploy
          - deploy/production-www
          - deploy/production.git
