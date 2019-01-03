@@ -35,11 +35,15 @@ A hook is a mechanism for specifying an action that occurs in response to an eve
 
 Git provides [a hook mechanism](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) that can be used to customize responses to events, such as commits or pushes. A hook is run as a shell script in response to certain events that occur when git processes changes to source code.
 
-Some example hook include:
+### Creating git hooks
 
-* **pre-commit:** This hook runs when `git commit` is performed on a repo. The hook can inspect the commit and reject it.
-* **post-commit:** This hook occurs after a commit is processed by the local repository.
-* **post-receive:** This hook occurs on the remote repository after a push has successfully been processed. This hook can be used for notifications or trigger other processes, such as a build.
+To create a new git hook, one simply creates a new shell script inside the `.git/hooks/` directory. The shell script should be the same name as the corresponding event defined by git.
+
+Some example events include:
+
+* **pre-commit:** This hook will run when `git commit` is performed on a repo. The hook can inspect the commit and reject it.
+* **post-commit:** This hook will run after a commit is processed by the local repository.
+* **post-receive:** This hook will run on a remote repository after a push has successfully been received and processed. This hook can be used for notifications or trigger other processes, such as a build.
 
 ### Practice
 
