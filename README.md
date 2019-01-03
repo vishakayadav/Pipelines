@@ -102,7 +102,6 @@ We will add a hook that will cancel a commit if `npm test` fails.
 #!/bin/bash
 
 npm install
-npm test
 # Get the exit code of tests.
 if npm test; then
   echo "Passed tests! Commit ✅ allowed!" 
