@@ -104,11 +104,14 @@ We will add a hook that will cancel a commit if `npm test` fails.
 npm install
 # Get the exit code of tests.
 if npm test; then
-  echo "Passed tests! Commit ✅ allowed!" 
+  echo "Passed tests! Commit ✅ allowed!"
+  exit 0
 fi
 echo "Failed npm tests. Canceling 🚫 commit!"
 exit 1
 ```
+
+Change the message in App/main.js from "Hi From" to "Bye From". Attempt to commit the file (`git add main.js`; `git commit -m "checkin"`). Confirm the tests fail, preventing the commit from being added.
 
 ## Concept questions
 
