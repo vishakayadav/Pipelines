@@ -8,11 +8,11 @@ In this workshop, we'll cover the basics of setting up a simple delivery pipelin
 
 A *delivery pipeline* is a workflow system for building, validating, and deploying changes into a production environment. Pipelines are essential for supporting the paradigm of *continuous deployment*. A pipeline consists of stages, which typically represents a software engineering process, such as testing, static analysis, acceptance testing, or code review. When fully automated, pipelines allow commits to source code to be automatically tested and "seamlessly" deployed into production environments within minutes.
 
-In practice, pipelines can be quite complex.
+In practice, the ecosystem for building pipelines can be quite complex.
 
 ![complex](img/complex.png)
 
-While more complex pipelines can be created with tools like Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
+While more advanced pipelines can be created with tools like Spinnaker and Jenkins, using *simple tools*—such as git and shell commands—can get the job done.
 
 ## Workshop
 
