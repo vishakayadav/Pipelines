@@ -46,9 +46,9 @@
     description: "Deploy directory setup"
     checks:
      - reachable:
-         - App/deploy
-         - App/deploy/production-www
-         - App/deploy/production.git
+         - deploy
+         - deploy/production-www
+         - deploy/production.git
      - version:
          comment: Install with `npm install pm2 -g`
          cmd: pm2 --version
@@ -60,7 +60,7 @@
 
      - contains: 
          string: production-www/ git checkout -f
-         file: App/deploy/production.git/hooks/post-receive
+         file: deploy/production.git/hooks/post-receive
 
      - reachable:
-         - App/deploy/production-www/main.js
+         - deploy/production-www/main.js
