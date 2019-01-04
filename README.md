@@ -185,9 +185,27 @@ You should be able to visit http://localhost:5001/ and see the changes you made 
 
 * What are some issues that might occur if required to pass tests in a pre-commit hook?
 * What are some issues that could occur when running npm install (when testing), and then npm install again in deployment?
+* Why is pm2 needed? What problems does this solve? What problems other problems might exist in more complex applications that our pipeline does not address?
 
 ## Next steps.
 
+Instead of just targeting local resources and services, we can easily trigger other remote services and tools.
 
-* Curl...
-* Webhooks...
+Using, `curl`, we can send HTTP requests to initialize all kinds of tasks. For example, we could modify our hooks to trigger a build on a jenkins server. 
+
+```
+curl -X POST http://YOUR_JENKINS_URL/job/YOUR_JOB/build?TOKEN=YOUR_API_TOKEN
+```
+
+or send an email:
+
+```
+curl smtp://mail.example.com --mail-from myself@example.com --mail-rcpt
+receiver@example.com --upload-file email.txt
+```
+
+Because you may not have direct access to a git server, such as a repository hosted on GitHub, you can alternatively configure [WebHooks](https://developer.github.com/webhooks/). WebHooks provide the ability to generate HTTP requests with payloads that can allow integration with many different services and tools.
+
+Pipeline events can be published on places like Slack.
+
+![slack](img/slack.png)
