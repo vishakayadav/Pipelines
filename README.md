@@ -94,7 +94,7 @@ Terminate the application (Control-C). Verify you can run the test with `npm tes
 
 ### Adding a test stage.
 
-We will add a hook that will cancel a commit if `npm test` fails.
+We will add a **pre-commit** hook for `/App` that will cancel a commit if `npm test` fails. `/App` is a submodule, and its hooks are located in `.git/modules/App/hooks`.
 
 ![pre-commit](img/pre-commit.png)
 
@@ -112,6 +112,8 @@ exit 1
 ```
 
 Change the message in App/main.js from "Hi From" to "Bye From". Attempt to commit the file (`git add main.js`; `git commit -m "checkin"`). Confirm the tests fail, preventing the commit from being added.
+
+> ❗️Not working as expected? Make you made the pre-commit script executable (`chmod +x pre-commit`)
 
 ### Adding an install and deploy stage
 
@@ -137,9 +139,9 @@ Create the following post-receive hook for production.git:
 ```sh
 #!/bin/sh
 echo "Current location: $GIT_DIR"
-GIT_WORK_TREE=deploy/production-www/ git checkout -f
+GIT_WORK_TREE=../production-www/ git checkout -f
 echo "Pushed to production!"
-cd deploy/production
+cd ../production-www
 npm install --production
 ```
 
