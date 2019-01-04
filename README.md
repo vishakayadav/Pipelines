@@ -137,9 +137,9 @@ Create the following post-receive hook for production.git:
 ```sh
 #!/bin/sh
 echo "Current location: $GIT_DIR"
-GIT_WORK_TREE=deploy/production-www/ git checkout -f
+GIT_WORK_TREE=../production-www/ git checkout -f
 echo "Pushed to production!"
-cd deploy/production
+cd ../production-www
 npm install --production
 ```
 
