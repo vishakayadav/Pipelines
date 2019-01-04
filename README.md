@@ -19,7 +19,7 @@ While more complex pipelines can be created with tools like Spinnaker and Jenkin
 ### Before you start
 
 * [Install opunit and node.js](https://github.com/CSC-DevOps/profile#opunit)
-* Clone this repo with: `git clone https://github.com/CSC-DevOps/Pipelines`
+* Clone this repo with: `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
 
 ### Checking progress on workshop
 
@@ -113,9 +113,60 @@ exit 1
 
 Change the message in App/main.js from "Hi From" to "Bye From". Attempt to commit the file (`git add main.js`; `git commit -m "checkin"`). Confirm the tests fail, preventing the commit from being added.
 
+### Adding an install and deploy stage
+
+We will add a new directory to publish our source code.
+
+![post-receive](img/post-receive.png)
+
+We need to create two directory paths:
+
+* deploy/production.git — This will serve as our remote repository.
+* deploy/production-www — This will hold the contents of our deployed web app.
+
+To create the production.git, we need to do something a little different. We need to create a *bare repository*, that is, a repository without a staging area and working tree. Instead, a bare repository only holds git objects, from which code can be extracted as needed. The advantage of a bare repository is that it helps avoids issues such as having a merge issues on production server.
+
+Inside production.git, run `git init --bare`.
+
+To hold the current version of software, we will use the production-www, and extract it from the bare repository using `git checkout`.
+
+We will use the **post-receive** event, to create a hook to perform the git checkout operation for us.
+
+Create the following post-receive hook for production.git:
+
+```sh
+#!/bin/sh
+echo "Current location: $GIT_DIR"
+GIT_WORK_TREE=deploy/production-www/ git checkout -f
+echo "Pushed to production!"
+cd deploy/production
+npm install --production
+```
+
+This script copies over the content of the latest code in production.git into production-www, and installs the appropriate dependencies for the web app.
+
+### Adding a git remote; Trying it out
+
+Finally, we need to link the App repository with the *remote* production.git repository. While this is still located on the same machine, in practice, the process would be similar for a remote machine hosting a git repository.
+
+Inside the App/ directory, run the following commands:
+
+    git remote add prod deploy/production.git
+
+Update the message, to be "Hi From production" and commit locally.
+
+You can now push changes in App to remote repo in the following manner.
+
+    git push prod master
+
+
+
+
+
 ## Concept questions
 
-* What are some issues that might occur if requiring to pass tests in a pre-commit hook?
+* What are some issues that might occur if required to pass tests in a pre-commit hook?
+* What are some issues that could occur when running npm install (when testing), and then npm install again in deployment?
 
 ## Next steps.
 

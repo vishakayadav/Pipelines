@@ -21,7 +21,7 @@
          file: hook-demo/.git/hooks/post-commit
 
 - group:
-    description: "App and deploy directory setup"
+    description: "App setup"
     checks:
 
      - contains: 
@@ -33,20 +33,30 @@
          - App/
          - App/node_modules
 
+- group:
+    description: "Pre-commit setup"
+    checks:
 
+     - contains: 
+         comment: App is a submodule, its hooks are located in `.git/modules/App/hooks`.
+         string: npm test
+         file: .git/modules/App/hooks/pre-commit
+
+- group:
+    description: "Deploy directory setup"
+    checks:
      - reachable:
          - deploy
          - deploy/production-www
          - deploy/production.git
 
 - group:
-    description: "Hooks setup"
+    description: "Post-receive setup"
     checks:
 
      - contains: 
          string: production-www/ git checkout -f
-         file: deploy/production.git/hooks/pre-receive
+         file: deploy/production.git/hooks/post-receive
 
      - reachable:
          - deploy/production-www/main.js
-         - deploy/production.git
