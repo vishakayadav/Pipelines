@@ -145,6 +145,25 @@ npm install --production
 
 This script copies over the content of the latest code in production.git into production-www, and installs the appropriate dependencies for the web app.
 
+This script does not run the web app, however. To do that, we will install an utility, [pm2](http://pm2.keymetrics.io/docs/usage/quick-start/), by running `npm install pm2 -g`. pm2 will ensure that the web app will stay running, even if it crashes.
+
+We add the following steps to our script, after npm install:
+
+```sh
+npm run stop
+npm run start
+```
+
+The details for how pm2 is run using [the process.json](http://pm2.keymetrics.io/docs/usage/application-declaration/#json-format), can be found in package.json:
+```js
+  "scripts": {
+    "test": "mocha",
+    "start": "node main.js start 5001",
+    "deploy": "pm2 start process.json",
+    "stop": "pm2 stop process.json"
+  },
+```
+
 ### Adding a git remote; Trying it out
 
 Finally, we need to link the App repository with the *remote* production.git repository. While this is still located on the same machine, in practice, the process would be similar for a remote machine hosting a git repository.
@@ -159,8 +178,7 @@ You can now push changes in App to remote repo in the following manner.
 
     git push prod master
 
-
-
+You should be able to visit http://localhost:5001/ and see the changes you made in app, and pushed into production!
 
 
 ## Concept questions
