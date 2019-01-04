@@ -94,7 +94,7 @@ Terminate the application (Control-C). Verify you can run the test with `npm tes
 
 ### Adding a test stage.
 
-We will add a **pre-commit** hook for `/App` that will cancel a commit if `npm test` fails. `/App` is a submodule, and its hooks are located in `.git/modules/App/hooks`.
+We will add a **pre-commit** hook for `/App` that will cancel a commit if `npm test` fails. Because `/App` is a submodule, its hooks are located in a slightly different location: `.git/modules/App/hooks`.
 
 ![pre-commit](img/pre-commit.png)
 
