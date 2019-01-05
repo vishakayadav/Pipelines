@@ -170,7 +170,7 @@ The details for how pm2 is run using [the process.json](http://pm2.keymetrics.io
 
 Finally, we need to link the App repository with the *remote* production.git repository. While this is still located on the same machine, in practice, the process would be similar for a remote machine hosting a git repository.
 
-Inside the Pipelines directory, run the following commands:
+Inside the App/ directory, run the following commands:
 
     git remote add prod deploy/production.git
 
