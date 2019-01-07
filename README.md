@@ -77,6 +77,8 @@ We will create a simple pipeline that runs tests, installs, and "deploys" an app
 
 Inside the `App/` directory, there is a simple node.js application. Go ahead and setup the app locally by running `npm install` inside the App/ directory.
 
+Before we make any changes to code, let's run `git checkout master`, which will make sure we can git things to the master branch, otherwise, by default, our commits will be to a detached head.
+
 Run the command: `npm start`, you should see output that looks something like:
 
 ```
@@ -172,7 +174,7 @@ Finally, we need to link the App repository with the *remote* production.git rep
 
 Inside the App/ directory, run the following commands:
 
-    git remote add prod deploy/production.git
+    git remote add prod ../deploy/production.git
 
 Update the message, to be "Hi From production" and commit locally.
 
