@@ -35,6 +35,9 @@ To help you identify if issues exist with the current setup, you can run the fol
 $ cd Pipelines
 $ opunit verify local
 ```
+
+![opunit](img/opunit-pipelines.png)
+
 ## Hooks
 
 A hook is a mechanism for specifying an action that occurs in response to an event. The action can be used to trigger other events. Thus, hooks can be composed together in order to create a simple pipeline.
