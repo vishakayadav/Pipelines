@@ -198,6 +198,7 @@ You should be able to visit http://localhost:5001/ and see the changes you made 
 * What are some issues that might occur if required to pass tests in a pre-commit hook?
 * What are some issues that could occur when running npm install (when testing), and then npm install again in deployment?
 * Why is pm2 needed? What problems does this solve? What problems other problems might exist in more complex applications that our pipeline does not address?
+* What are other stages of the pipeline that are missing?
 
 ## Next steps.
 
