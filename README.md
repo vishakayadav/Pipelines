@@ -79,6 +79,8 @@ Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git a
 
 We will create a simple pipeline that runs tests, installs, and "deploys" an application into production based on a commit.
 
+![Overview](https://github.com/CSC-DevOps/Pipelines/blob/master/img/SimplePipeline.png)
+
 ### Our target application
 
 Inside the `App/` directory, there is a simple node.js application. Go ahead and setup the app locally by running `npm install` inside the App/ directory.
@@ -100,7 +102,7 @@ Visit http://localhost:5001 in your web browser. You should see the message, "Hi
 
 Terminate the application (Control-C). Verify you can run the test with `npm test` and see two tests passing.
 
-### Adding a test stage.
+### Adding a build and test stage.
 
 We will add a **pre-commit** hook for `/App` that will cancel a commit if `npm test` fails. Because `/App` is a submodule, its hooks are located in a slightly different location: `.git/modules/App/hooks`.
 
