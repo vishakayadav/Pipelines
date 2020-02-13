@@ -18,8 +18,14 @@ While more advanced pipelines can be created with tools like Spinnaker and Jenki
 
 ### Before you start
 
-* [Install opunit and node.js](https://github.com/CSC-DevOps/profile#opunit)
+* Install latest opunit: `npm install -g opunit`.
+  ```
+  $ opunit --version
+  0.6.1
+  ```
+
 * Clone this repo with: `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
+* You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  Fix by running `cd App/ && git switch master`.
 
 ### Checking progress on workshop
 
