@@ -34,8 +34,14 @@ docable-server import https://github.com/CSC-DevOps/Pipelines
 ```
 
 If you clone this repo with, use `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
-* You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  Fix by running `cd App/ && git switch master`.
 
+2. You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  
+
+If you did not use `--recursive` flag, or are using a notebook, run the following!
+
+```bash | {type: 'command'}
+git checkout master
+```
 
 2. Provision a virtual machine for the workshop. We have provided a bakerx.yml file to help setup the environment of the VM.
 
