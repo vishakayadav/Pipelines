@@ -11,6 +11,8 @@ In this workshop, we'll cover the basics of setting up a simple delivery pipelin
 
 ![magic](img/magic.jpg)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zp2P-kLuPh0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### What and why pipelines?
 
 A *delivery pipeline* is a workflow system for building, validating, and deploying changes into a production environment. Pipelines are essential for supporting the paradigm of *continuous deployment*. A pipeline consists of stages, which typically represents a software engineering process, such as testing, static analysis, acceptance testing, or code review. When fully automated, pipelines allow commits to source code to be automatically tested and "seamlessly" deployed into production environments within minutes.
