@@ -66,7 +66,7 @@ bakerx run
 
 To help you identify if issues exist with the current setup, you can run the following command to check:
 
-```bash | {type: 'command'}
+```bash | {type: 'command', stream: true}
 opunit verify -i inventory.yml
 ```
 
