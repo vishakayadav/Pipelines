@@ -1,0 +1,26 @@
+- group:
+    description: "Deploy directory setup"
+    checks:
+     - reachable:
+         - /srv
+         - /srv/production-www
+         - /srv/production.git
+     - version:
+         comment: Install with `npm install pm2 -g`
+         cmd: pm2 --version
+         range: ^3.2.4
+
+- group:
+    description: "Post-receive setup"
+    checks:
+
+     - contains: 
+         string: /srv/production-www/ git checkout -f
+         file: /srv/production.git/hooks/post-receive
+
+     - reachable:
+         - /srv/deploy/production-www/main.js
+     - availability:
+         port: 5001
+         status: 200
+         url: /

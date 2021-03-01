@@ -1,0 +1,10 @@
+---
+- local:
+  - name: local
+    criteria_path: test/opunit.yml
+    
+- ssh:
+  - name: app_prod
+    target: vagrant@192.168.33.15
+    private_key: ~/.bakerx/insecure_private_key
+    criteria_path: test/app.yml
