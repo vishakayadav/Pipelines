@@ -3,6 +3,8 @@ targets:
     - type: local
       name: local
       cwd: .
+    - type: bakerx
+      name: app_prod
 -->
 
 # Pipelines
