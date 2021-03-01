@@ -1,3 +1,10 @@
+<!--
+targets:
+    - type: local
+      name: local
+      cwd: .
+-->
+
 # Pipelines
 
 In this workshop, we'll cover the basics of setting up a simple delivery pipeline, consisting of git hooks and shell commands.
@@ -74,6 +81,9 @@ open https://google.com/
 # start https://google.com/
 # In Linux
 # xdg-open https://google.com/
+```
+
+``` | {type: 'terminal'}
 ```
 
 Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git add demo`; `git commit -m "init"`. You should see the webpage open.)
