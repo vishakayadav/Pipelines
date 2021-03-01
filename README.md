@@ -40,7 +40,7 @@ If you clone this repo with, use `git clone --recursive https://github.com/CSC-D
 If you did not use `--recursive` flag, or are using a notebook, run the following!
 
 ```bash | {type: 'command'}
-git checkout master
+git submodule update --init --recursive
 ```
 
 2. Provision a virtual machine for the workshop. We have provided a bakerx.yml file to help setup the environment of the VM.
