@@ -16,24 +16,25 @@ While more advanced pipelines can be created with tools like Spinnaker and Jenki
 
 ## Workshop
 
-### Before you start
+### Before you get started
 
-* Install latest opunit: `npm install -g opunit`.
-  ```
-  $ opunit --version
-  0.6.1
-  ```
+Import this as a notebook or clone this repo locally.  
 
-* Clone this repo with: `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
+Also, ensure you [install latest version of docable](https://github.com/ottomatica/docable-notebooks/blob/master/docs/install.md), with multi-target support!
+
+```bash
+docable-server import https://github.com/CSC-DevOps/CM 
+```
+
+If you clone this repo with, use `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
 * You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  Fix by running `cd App/ && git switch master`.
 
 ### Checking progress on workshop
 
 To help you identify if issues exist with the current setup, you can run the following command to check:
 
-```bash
-$ cd Pipelines
-$ opunit verify local
+```bash | {type: 'command'}
+opunit verify local
 ```
 
 ![opunit](img/opunit-pipelines.png)
@@ -82,7 +83,7 @@ Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git a
 
 We will create a simple pipeline that runs tests, installs, and "deploys" an application into production based on a commit.
 
-![Overview](https://github.com/CSC-DevOps/Pipelines/blob/master/img/SimplePipeline.png)
+![Overview](img/SimplePipeline.png)
 
 ### Our target application
 
