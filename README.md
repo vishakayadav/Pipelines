@@ -30,7 +30,7 @@ While more advanced pipelines can be created with tools like Spinnaker and Jenki
 Also, ensure you [install latest version of docable](https://github.com/ottomatica/docable-notebooks/blob/master/docs/install.md), with multi-target support!
 
 ```bash
-docable-server import https://github.com/CSC-DevOps/CM 
+docable-server import https://github.com/CSC-DevOps/Pipelines
 ```
 
 If you clone this repo with, use `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
