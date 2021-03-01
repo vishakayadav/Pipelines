@@ -45,7 +45,7 @@ git checkout master
 
 2. Provision a virtual machine for the workshop. We have provided a bakerx.yml file to help setup the environment of the VM.
 
-```yml 
+```yml | {type: 'info', range: {start: 7, end: 8}}
 name: app_prod
 image: focal
 ip: 192.168.33.15
@@ -70,7 +70,9 @@ To help you identify if issues exist with the current setup, you can run the fol
 opunit verify local
 ```
 
+<!--
 ![opunit](img/opunit-pipelines.png)
+-->
 
 ## Hooks
 
