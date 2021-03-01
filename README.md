@@ -2,7 +2,7 @@
 
 In this workshop, we'll cover the basics of setting up a simple delivery pipeline, consisting of git hooks and shell commands.
 
-![magic](img/magic.jpeg)
+![magic](img/magic.jpg)
 
 ### What and why pipelines?
 
