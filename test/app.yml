@@ -19,7 +19,7 @@
          file: /srv/production.git/hooks/post-receive
 
      - reachable:
-         - /srv/deploy/production-www/main.js
+         - /srv/production-www/main.js
      - availability:
          port: 5001
          status: 200
