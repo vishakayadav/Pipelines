@@ -1,6 +1,6 @@
 name: app_prod
 image: focal
-ip: 192.168.33.15
+ip: 192.168.56.15
 up: |                      
   apt update
   # 😬

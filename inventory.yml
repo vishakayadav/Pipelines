@@ -5,6 +5,6 @@
     
 - ssh:
   - name: app_prod
-    target: vagrant@192.168.33.15
+    target: vagrant@192.168.56.15
     private_key: ~/.bakerx/insecure_private_key
     criteria_path: test/app.yml
