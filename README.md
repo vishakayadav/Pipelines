@@ -27,19 +27,11 @@ While more advanced pipelines can be created with tools like Spinnaker and Jenki
 
 ### Before you get started
 
-1. Import this as a notebook or clone this repo locally.  
+1. Clone this repo locally.
 
-Also, ensure you [install latest version of docable](https://github.com/ottomatica/docable-notebooks/blob/master/docs/install.md), with multi-target support!
+⚠️ Note use `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. The, `--recursive` is required, as the App directory is a submodule. You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  
 
-```bash
-docable-server import https://github.com/CSC-DevOps/Pipelines
-```
-
-If you clone this repo with, use `git clone --recursive https://github.com/CSC-DevOps/Pipelines`. Note, `--recursive` is required, as the App directory is a submodule.
-
-2. You will want to make sure the App submodule is tracking changes in master, otherwise you will have [a detached head](https://stackoverflow.com/a/36375256/547112).  
-
-If you did not use `--recursive` flag, or are using a notebook, run the following!
+If you did not use `--recursive` flag, run the following!
 
 ```bash | {type: 'command'}
 git submodule update --init --recursive
@@ -50,7 +42,7 @@ git submodule update --init --recursive
 ```yml | {type: 'info', range: {start: 7, end: 8}}
 name: app_prod
 image: focal
-ip: 192.168.33.15
+ip: 192.168.56.15
 up: |                      
   apt update
   # 😬
@@ -63,6 +55,11 @@ up: |
 bakerx run
 ```
 
+Alternatively, for M1, run the following, and then the appropriate install script above ^
+
+```
+vm run app_prod ubuntu:focal
+```
 
 ### Checking progress on workshop
 
@@ -71,6 +68,8 @@ To help you identify if issues exist with the current setup, you can run the fol
 ```bash | {type: 'command', stream: true}
 opunit verify -i inventory.yml
 ```
+
+For M1 users, you will want to edit the inventory-m1.yml to include the ip address of your VM.
 
 <!--
 ![opunit](img/opunit-pipelines.png)
