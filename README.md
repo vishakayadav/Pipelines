@@ -112,9 +112,6 @@ open https://google.com/
 # xdg-open https://google.com/
 ```
 
-``` | {type: 'terminal'}
-```
-
 Trigger the commit by create a simple commit in hook-demo. (`touch demo`; `git add demo`; `git commit -m "init"`. You should see the webpage open.)
 
 
@@ -139,9 +136,6 @@ $ npm start
 > node main.js start 5001
 
 Example app listening at http://:::5001
-```
-
-``` | {type: 'terminal'}
 ```
 
 
@@ -174,8 +168,6 @@ Attempt to commit the file (`git add main.js`; `git commit -m "checkin"`). Confi
 
 > ❗️Not working as expected? Make you made the pre-commit script executable (`chmod +x pre-commit`)
 
-``` | {type: 'terminal'}
-```
 
 ## Prepare app_prod server for deploy stage
 
@@ -195,8 +187,6 @@ To create the production.git, we need to do something a little different. We nee
 
 Inside `/srv/production.git`, run `git init --bare`.
 
-``` | {type: 'terminal', 'background-color': '#7e050d'}
-```
 
 ### Preparing post-receive hook
 
@@ -239,11 +229,11 @@ The details for how pm2 is run using [the process.json](http://pm2.keymetrics.io
 
 ### Adding a git remote; Trying it out
 
-Finally, we need to link the App repository with the *remote* production.git repository. While this is still located on the same machine, in practice, the process would be similar for a remote machine hosting a git repository.
+Finally, we need to link the App repository with the *remote* production.git repository. While this is still located on the same place (but in a virtual machine), in practice, the process would be similar for a remote machine hosting a git repository.
 
 Inside the App/ directory, run the following commands:
 
-    git remote add prod ssh://vagrant@192.168.33.15/srv/production.git
+    git remote add prod ssh://vagrant@192.168.56.15/srv/production.git
 
 Update the App main.js code's message, to be "Hi From production" and commit locally.
 
@@ -252,10 +242,9 @@ You can now push changes in App to remote repo in the following manner.
     GIT_SSH_COMMAND="ssh -i ~/.bakerx/insecure_private_key" 
     git push prod master
 
-You should be able to visit http://192.168.33.15:5001/ and see the changes you made in app, and pushed into production!
+You should be able to visit http://192.168.56.15:5001/ and see the changes you made in app, and pushed into production!
 
-``` | {type: 'terminal', 'background-color': '#7e050d'}
-```
+M1: You'll have to use ubuntu@[YOUR VM IP] and the following key `~/Library/Application Support/basicvm/key`
 
 ## Concept questions
 
